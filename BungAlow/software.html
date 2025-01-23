@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BungAlow Reservation</title>
+    <link rel="stylesheet" href="software.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">BungA<span>low</span></div>
+            <ul class="menu">
+                <li><a href="index.html">Начало</a></li>
+                <li><a href="faq.html">Въпроси</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+            </ul>
+            <a href="software.html" class="contact-btn">Резервирай</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container">
+        <h1 class="title">BungAlow Reservation</h1>
+
+        <!-- Reservation Form -->
+        <div class="form">
+            <h2>Добави Резервация</h2>
+            
+            <label for="fullName">Две имена:</label>
+            <input type="text" id="fullName" placeholder="Напишете две имена" required>
+
+            <label for="reservationDate">Начална Дата:</label>
+            <input type="date" id="reservationDate" required>
+
+            <label for="daysCount">Брой дни:</label>
+            <input type="number" id="daysCount" placeholder="Въведете брой дни" min="1" required>
+
+            <label for="bungalowType">Тип Бунгало:</label>
+            <select id="bungalowType">
+                <option value="summer" data-price="50">Летни Бунгала (50 лв/ден)</option>
+                <option value="winter" data-price="70">Зимни Бунгала (70 лв/ден)</option>
+                <option value="affordable" data-price="40">Изгодни Бунгала (40 лв/ден)</option>
+            </select>
+
+            <div class="price-display">
+                <p>Обща цена: <span id="totalPrice">0</span> лв</p>
+            </div>
+
+            <button id="reserveButton" class="btn-submit">Резервирай</button>
+        </div>
+
+        <!-- Paywall Modal -->
+        <div id="paywallModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Потвърждение на плащане</h3>
+                <p>Обща сума за плащане: <span id="modalTotalPrice">0</span> лв</p>
+                <button id="confirmPayment" class="btn-confirm">Потвърди Плащане</button>
+                <button id="cancelPayment" class="btn-cancel">Отказ</button>
+            </div>
+        </div>
+        <div id="reservationModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Reservation Confirmed!</h3>
+                <p>Thank you, <span id="customerName"></span>, for your reservation!</p>
+                <p>Your booking for the <span id="bungalowType"></span> is confirmed for <span id="reservationDate"></span>.</p>
+                <p>Total Price: <span id="totalPrice"></span> лв.</p>
+                <button class="btn-confirm" onclick="closeModal()">OK</button>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- JavaScript -->
+    <script src="software.js"></script>
+</body>
+</html>
